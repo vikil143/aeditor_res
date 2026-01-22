@@ -12,6 +12,7 @@ type CodiumEditorContextValue = {
   docs: Doc[]
   activeDocId: string
   activeDoc: Doc | undefined
+  otherDocuments: Document[]
   setActiveDocId: (id: string) => void
   updateDocContent: (id: string, content: string) => void
   addDoc: (doc?: Partial<Doc>) => void
@@ -86,7 +87,7 @@ export function CodiumEditorProvider({ children }: { children: React.ReactNode }
   }, [])
 
   const activeDoc = useMemo(() => docs.find((doc) => doc.id === activeDocId), [docs, activeDocId])
-  
+
   const otherDocuments = useMemo(() => {
     return docs
       .filter((doc) => doc.id !== activeDocId)
@@ -107,12 +108,13 @@ export function CodiumEditorProvider({ children }: { children: React.ReactNode }
       docs,
       activeDocId,
       activeDoc,
+      otherDocuments,
       setActiveDocId,
       updateDocContent,
       addDoc,
       removeDoc,
     }),
-    [docs, activeDocId, activeDoc, updateDocContent, addDoc, removeDoc]
+    [docs, activeDocId, activeDoc, otherDocuments, updateDocContent, addDoc, removeDoc]
   )
 
   return <CodiumEditorContext.Provider value={value}>{children}</CodiumEditorContext.Provider>
