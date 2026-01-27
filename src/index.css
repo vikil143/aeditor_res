@@ -9,6 +9,165 @@ body {
   overflow: hidden;
 }
 
+/* App shell */
+.app-shell {
+  height: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  background: #07090f;
+}
+
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 20px;
+  border-bottom: 1px solid #1f2633;
+  background: linear-gradient(120deg, rgba(9, 13, 20, 0.95), rgba(20, 28, 40, 0.95));
+  color: #e6e8ef;
+  font-family: "Space Grotesk", "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+}
+
+.app-header__title {
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.app-header__actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.9rem;
+}
+
+.app-header__user {
+  color: #9fb0c8;
+}
+
+.app-header__logout {
+  background: #1a2230;
+  color: #e6e8ef;
+  border: 1px solid #2c3748;
+  border-radius: 10px;
+  padding: 6px 12px;
+  cursor: pointer;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.app-header__logout:hover {
+  border-color: #61c7ff;
+  transform: translateY(-1px);
+}
+
+/* Mock auth */
+.auth-shell {
+  height: 100%;
+  display: grid;
+  place-items: center;
+  background: radial-gradient(120% 120% at 20% 10%, #162031 0%, #0a0f17 55%, #07090f 100%);
+  color: #e6e8ef;
+  font-family: "Space Grotesk", "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+}
+
+.auth-card {
+  width: min(420px, 90vw);
+  background: rgba(14, 19, 29, 0.92);
+  border: 1px solid #253044;
+  border-radius: 18px;
+  padding: 28px;
+  box-shadow: 0 30px 60px rgba(5, 8, 14, 0.55);
+}
+
+.auth-card__eyebrow {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: 0.65rem;
+  color: #8ea0ba;
+}
+
+.auth-card__title {
+  margin: 10px 0 6px;
+  font-size: 1.8rem;
+}
+
+.auth-card__subtitle {
+  margin: 0 0 18px;
+  color: #a7b4c8;
+}
+
+.auth-form {
+  display: grid;
+  gap: 10px;
+}
+
+.auth-form__label {
+  font-size: 0.85rem;
+  color: #b6c3d7;
+}
+
+.auth-form__input {
+  border-radius: 12px;
+  border: 1px solid #2b374c;
+  background: #0f1520;
+  color: #e6e8ef;
+  padding: 10px 12px;
+  font-size: 0.95rem;
+}
+
+.auth-form__input:focus {
+  outline: none;
+  border-color: #61c7ff;
+  box-shadow: 0 0 0 3px rgba(97, 199, 255, 0.15);
+}
+
+.auth-form__error {
+  background: rgba(255, 107, 107, 0.15);
+  border: 1px solid rgba(255, 107, 107, 0.4);
+  color: #ffb3b3;
+  padding: 8px 10px;
+  border-radius: 10px;
+  font-size: 0.85rem;
+}
+
+.auth-form__submit {
+  margin-top: 6px;
+  border-radius: 12px;
+  border: 1px solid #2d394f;
+  background: linear-gradient(120deg, rgba(97, 199, 255, 0.22), rgba(247, 185, 85, 0.22));
+  color: #e6e8ef;
+  padding: 10px 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.auth-form__submit:hover {
+  transform: translateY(-1px);
+  border-color: rgba(97, 199, 255, 0.6);
+}
+
+.auth-form__submit:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+  transform: none;
+}
+
+.auth-card__hint {
+  margin-top: 14px;
+  font-size: 0.8rem;
+  color: #93a2ba;
+}
+
+.auth-card__hint a {
+  color: #9fd6ff;
+  text-decoration: none;
+}
+
+.auth-card__hint a:hover {
+  text-decoration: underline;
+}
+
 /* Codium editor */
 .codium-editor {
   --editor-bg: #0f1116;
