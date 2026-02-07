@@ -3,12 +3,12 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "mongodb"
   url      = env("DATABASE_URL")
 }
 
 model User {
-  id           String     @id @default(cuid())
+  id           String     @id @default(auto()) @map("_id") @db.ObjectId
   email        String     @unique
   passwordHash String
   createdAt    DateTime   @default(now())
@@ -16,13 +16,13 @@ model User {
 }
 
 model Document {
-  id        String   @id @default(cuid())
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
   title     String
   language  String
   content   String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  ownerId   String
+  ownerId   String   @db.ObjectId
   owner     User     @relation(fields: [ownerId], references: [id], onDelete: Cascade)
 
   @@index([ownerId])
